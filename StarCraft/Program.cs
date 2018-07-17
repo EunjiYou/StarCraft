@@ -12,18 +12,47 @@ namespace StarCraft
             Marine m1 = new Marine();
 
             // m1이 스팀팩 사용
-            m1.HP = m1.HP - 5;
-            m1.Speed = m1.Speed + 1;
-
+            int hp1 = UseSteamPack(m1, 2);
+            
             Marine m2 = new Marine();
 
             // m2가 스팀팩 사용
-            m2.HP = m2.HP - 5;
-            m2.Speed = m2.Speed + 1;
+            int hp2 = UseSteamPack(m2, 1);
 
-            // m1이 스팀팩 사용
-            m1.HP = m1.HP - 5;
-            m1.Speed = m1.Speed + 1;
+            Heal(m1, 30);
+        }
+
+        //static int UseSteamPack(Marine m, int count)
+        //{
+        //    for (int i = 0; i < count; i++)
+        //    {
+        //        m.HP = m.HP - 5;
+        //        m.Speed = m.Speed + 1;
+        //    }
+
+        //    return m.HP;
+        //}
+
+        static int UseSteamPack(Marine m, int count)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                UseSteamPackCore(m);
+            }
+
+            return m.HP;
+        }
+
+        static void UseSteamPackCore(Marine m)
+        {
+            m.HP = m.HP - 5;
+            m.Speed = m.Speed + 1;
+        }
+
+        static void Heal(Marine m, int hpToAdd)
+        {
+            //m.HP = m.HP + hpToAdd;
+            m.HP += hpToAdd;
         }
     }
 }
