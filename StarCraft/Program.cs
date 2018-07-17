@@ -22,6 +22,20 @@ namespace StarCraft
             Firebat f1 = new Firebat();
             Firebat_UseSteamPack(f1, 1);
             Firebat_GetDamaged(f1, 3);
+
+            ShowHP(m1);
+
+            Firebat_UseSteamPackCore(f1); // 은닉 불가
+            f1.HP -= 100; // 은닉 불가
+
+        }
+
+        private static void ShowHP(Marine m1)
+        {
+            //Console.WriteLine("m1의 HP는 " + m1.HP + " 이고 Speed는 " + m1.Speed + " 입니다.");
+            //Console.WriteLine("m1의 HP는 {0} 이고 Speed는 {1} 입니다.", m1.HP, m1.Speed);
+            Console.WriteLine($"m1의 HP는 {m1.HP} 이고 Speed는 {m1.Speed} 입니다.");
+
         }
 
         private static void Firebat_GetDamaged(Firebat f, int enemyAttack)
@@ -33,18 +47,7 @@ namespace StarCraft
         {
             m.HP -= (enemyAttack * 2);
         }
-
-        //static int UseSteamPack(Marine m, int count)
-        //{
-        //    for (int i = 0; i < count; i++)
-        //    {
-        //        m.HP = m.HP - 5;
-        //        m.Speed = m.Speed + 1;
-        //    }
-
-        //    return m.HP;
-        //}
-
+        
         static int Marine_UseSteamPack(Marine m, int count)
         {
             for (int i = 0; i < count; i++)
