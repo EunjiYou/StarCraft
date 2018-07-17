@@ -20,6 +20,13 @@ namespace StarCraft
             int hp2 = UseSteamPack(m2, 1);
 
             Heal(m1, 30);
+
+            GetDamaged(m2, 3);
+        }
+
+        private static void GetDamaged(Marine m, int enemyAttack)
+        {
+            m.HP -= (enemyAttack * 2);
         }
 
         //static int UseSteamPack(Marine m, int count)
