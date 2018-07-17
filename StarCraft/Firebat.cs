@@ -5,30 +5,11 @@ using System.Text;
 
 namespace StarCraft
 {
-    class Firebat
+    class Firebat : Unit
     {
-        private int HP = 60;
-        private int Speed = 1;
-
-        public void GetDamaged(int enemyAttack)
+        public override void GetDamaged(int enemyAttack)
         {
             HP -= (enemyAttack * 3);
-        }
-
-        public int UseSteamPack(int count)
-        {
-            for (int i = 0; i < count; i++)
-            {
-                UseSteamPackCore();
-            }
-
-            return HP;
-        }
-
-        private void UseSteamPackCore()
-        {
-            HP -= 5;
-            Speed += 1;
         }
     }
 }
