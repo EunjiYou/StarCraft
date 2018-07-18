@@ -16,7 +16,10 @@ namespace StarCraft
             return HP;
         }
 
-        public abstract void GetDamaged(int enemyAttack);
+        public virtual void GetDamaged(int enemyAttack)
+        {
+            HP -= enemyAttack;
+        }
         
         public int UseSteamPack(int count)
         {
